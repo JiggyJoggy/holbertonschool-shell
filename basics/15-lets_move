@@ -1,2 +1,2 @@
 #!/bin/bash
-mv . -i [[:upper:]] -t /tmp/u
+mv . -i [:upper:] -t /tmp/u
