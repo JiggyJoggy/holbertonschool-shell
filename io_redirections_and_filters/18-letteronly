@@ -1,2 +1,2 @@
 #!/bin/bash
-uniq [a-z]:[A-Z] /etc/ssh/sshg_config
+grep -w [a-z],[A-Z] /etc/ssh/sshd_config
