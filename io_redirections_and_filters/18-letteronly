@@ -1,2 +1,2 @@
 #!/bin/bash
-grep -v [A-Z]* /etc/ssh/sshg_config
+grep -v [A-Z] /etc/ssh/sshg_config
