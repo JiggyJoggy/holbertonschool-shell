@@ -1,2 +1,2 @@
 #!/bin/bash
-find -maxdepth 3 -type f -a -empty | rev | cut -d "/" -f 1,2 | rev
+find -empty | rev | cut -d "/" -f 1,2 | rev
