@@ -1,2 +1,2 @@
 #!/bin/bash
-find -maxdepth 3 -type f -empty -print
+find -maxdepth 3 -type f -empty | cut -d "/" -f 1,2
