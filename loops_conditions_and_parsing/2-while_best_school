@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 # While loop
 x=0
-while $x -ge 10
+while "$x" -ge 10
 do
-	$(($x = $x + 1))
+	x=$(($x + 1))
 	echo Best School
 done
