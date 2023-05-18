@@ -12,4 +12,5 @@ do
 	else
 		echo Best School
 	fi
+	_=$((x++))
 done
