@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
 # Using While loop displaying 12 hours and 59 minutes
+head -n 70
 min=0
 hour=0
 echo Hour: $hour
