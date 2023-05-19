@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 #
-if $school -e
+if $school -s
 then
 	echo school file exists
 	if $school -empty
