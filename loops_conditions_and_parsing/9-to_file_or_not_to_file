@@ -6,9 +6,16 @@ then
 	if [ ! -s "school" ]
 	then
 		echo school file is empty
+		if [ -s "school" ]
+		then
+			echo school is a regular file
+		fi
 	elif [ -s "school" ]
 	then
 		echo school file is not empty
+		if [ ! -s "school" ]
+			echo school is a regular file
+		fi
 	else
 		echo school is a regular file
 	fi
