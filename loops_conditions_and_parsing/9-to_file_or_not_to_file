@@ -1,12 +1,12 @@
 #!/usr/bin/env bash
 #
-if $[-s school] == true
+if [ -e "$school" ] == true
 then
 	echo school file exists
-	if $[school -empty] == true
+	if [ -s "$school" ]
 	then
 		echo school file is empty
-	elif $[school -empty] == false
+	elif [ -s "$school" ]
 	then
 		echo school file is not empty
 	else
