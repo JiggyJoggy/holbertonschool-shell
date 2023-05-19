@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+#
+for x in ls
+do
+	rev | cut -d '-' -f 1 | rev
+done
