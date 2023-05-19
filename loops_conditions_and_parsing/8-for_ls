@@ -1,7 +1,6 @@
 #!/usr/bin/env bash
 #
-for - in ls
+for x in $(ls |rev | cut -d '-' -f 1 | rev)
 do
-	$(rev | cut -d '-' -f 1 | rev)
-	echo $-
+	echo $x
 done
