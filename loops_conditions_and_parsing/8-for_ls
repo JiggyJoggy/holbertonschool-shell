@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 #
-for x in $(ls |rev | cut -d '-' -f 1 | rev)
+for x in $(find . -type f | rev | cut -d '-' -f 1 | rev)
 do
-	echo $x
+	echo "$x"
 done
