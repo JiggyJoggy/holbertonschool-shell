@@ -17,11 +17,11 @@ case "$1" in
 		echo "manage_my_process started";;
 	stop)
 		stop
-		/usr/bin/rm -f /var/run/my_process.pid
+		-delete /var/run/my_process.pid
 		echo "manage_my_process stopped";;
 	restart)
 		stop
-		/usr/bin/rm -f /var/run/my_process.pid
+		-delete /var/run/my_process.pid
 		start
 		echo $$ > /var/run/my_process.pid
 		echo "manage_my_process restarted";;
