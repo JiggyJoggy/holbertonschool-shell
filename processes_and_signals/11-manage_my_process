@@ -11,19 +11,19 @@ stop() {
 }
 
 case "$1" in
-	start)
+	"start")
 		start
-		sudo echo $$ > /var/run/my_process.pid
+		echo $$ > /var/run/my_process.pid
 		echo "manage_my_process started";;
-	stop)
+	"stop")
 		stop
 		sudo rm /var/run/my_process.pid
 		echo "manage_my_process stopped";;
-	restart)
+	"restart")
 		stop
 		sudo rm /var/run/my_process.pid
 		start
-		sudo echo $$ > /var/run/my_process.pid
+		echo $$ > /var/run/my_process.pid
 		echo "manage_my_process restarted";;
 	*)
 		echo "Usage: manage_my_process {start|stop|restart}";;
