@@ -4,19 +4,19 @@
 
 file="/var/run/my_process.pid"
 
-start() {
+function start() {
 	(./manage_my_process) &
 	echo $$ > $file
 	echo "manage_my_process started"
 }
 
-stop() {
+function stop() {
 	pkill -f ./manage_my_process
 	sudo rm $file
 	echo "manage_my_process stopped"
 }
 
-restart() {
+function restart() {
 	pkill -f ./manage_my_process
 	sudo rm $file
 	(./manage_my_process) &
