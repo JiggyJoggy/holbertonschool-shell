@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+# Loop for project 11
+while true
+do
+	echo I am alive! >> /tep/my_process
+	sleep 2
+done
