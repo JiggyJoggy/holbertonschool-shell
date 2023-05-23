@@ -4,36 +4,23 @@
 
 file="/var/run/my_process.pid"
 
-function start() {
-	(./manage_my_process) &
-	echo $$ > $file
+if [ "$1" == "stop" ];
+then
+	./manage_my_process &
+	sudo bash -c "echo $! > $file"
 	echo "manage_my_process started"
-}
-
-function stop() {
-	pkill -f $file
+elif [ "$1" == "stop" ];
+then
+	pkill -f ./manage_my_process
 	sudo rm $file
 	echo "manage_my_process stopped"
-}
-
-function restart() {
-	pkill -f $file
+elif [ "$1" == "restart" ];
+then
+	pkill -f ./manage_my_process
 	sudo rm $file
-	(./manage_my_process) &
-	echo $$ > $file
+	./manage_my_process &
+	sudo bash -c "echo $! > $file"
 	echo "manage_my_process restarted"
-}
-case "$1" in
-	"start")
-		start
-		;;
-	"stop")
-		stop
-		;;
-	"restart")
-		restart
-		;;
-	*)
-		echo "Usage: manage_my_process {start|stop|restart}"
-		;;
-	esac
+else
+	echo "Usage: manage_my_process {start|stop|restart}"
+fi
