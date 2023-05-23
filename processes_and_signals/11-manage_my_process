@@ -3,24 +3,38 @@
 # /etc/init.d/11-manage_my_process
 
 file="/var/run/my_process.pid"
+process="./manage_my_process"
 
-if [ "$1" == "stop" ];
-then
-	./manage_my_process &
-	sudo bash -c "echo $! > $file"
+function start()
+{
+	$process &
+	echo $$ > $file
 	echo "manage_my_process started"
-elif [ "$1" == "stop" ];
-then
-	pkill -f ./manage_my_process
+}
+
+function stop()
+{
+	pkill -f $process
 	sudo rm $file
 	echo "manage_my_process stopped"
-elif [ "$1" == "restart" ];
-then
-	pkill -f ./manage_my_process
+}
+
+function restart()
+{
+	pkill -f $process
 	sudo rm $file
-	./manage_my_process &
-	sudo bash -c "echo $! > $file"
+	$process &
+	echo $$ > $file
 	echo "manage_my_process restarted"
-else
-	echo "Usage: manage_my_process {start|stop|restart}"
-fi
+}
+
+case ${1} in
+	"start")
+		start;;
+	"restart")
+		restart;;
+	"stop")
+		stop;;
+	*)
+		echo "Usage: manage_my_process {start|stop|restart}"
+esac
