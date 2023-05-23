@@ -18,7 +18,7 @@ function stop() {
 
 function restart() {
 	pkill -f ./manage_my_process
-	sudo rm $file
+	rm $file
 	(./manage_my_process) &
 	echo $$ > $file
 	echo "manage_my_process restarted"
@@ -34,5 +34,6 @@ case "$1" in
 		restart
 		;;
 	*)
-		echo "Usage: manage_my_process {start|stop|restart}";;
+		echo "Usage: manage_my_process {start|stop|restart}"
+		;;
 	esac
